@@ -27,8 +27,13 @@ export default function RootLayout({
     <html
       lang="en-GB"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col font-sans">
+      {/* Extensions (e.g. ColorZilla) may inject attributes like cz-shortcut-listen on <body> before hydration. */}
+      <body
+        className="min-h-full flex flex-col font-sans"
+        suppressHydrationWarning
+      >
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
