@@ -132,11 +132,7 @@ export default function Home() {
             </div>
 
             <aside
-              className="card p-6 md:p-7"
-              style={{
-                background:
-                  "linear-gradient(165deg, rgba(232,165,75,0.12) 0%, rgba(28,25,22,0.92) 42%, var(--surface-1) 100%)",
-              }}
+              className="card-services p-6 md:p-7"
               aria-labelledby="services-heading"
             >
               <h2 id="services-heading" className="section-label">
