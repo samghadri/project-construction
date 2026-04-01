@@ -1,0 +1,79 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bathroom refurbishment placeholder image">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#020617"/>
+      <stop offset="1" stop-color="#0B1220"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(220 140) rotate(25) scale(640 420)">
+      <stop stop-color="#FBBF24" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#FBBF24" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="porcelain" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#CBD5E1"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7DD3FC" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#38BDF8" stop-opacity="0.04"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <rect width="1200" height="700" fill="url(#sun)"/>
+
+  <!-- Soft tile grid background -->
+  <g opacity="0.25">
+    <rect x="0" y="190" width="1200" height="510" fill="url(#tile)"/>
+    <path d="M0 260H1200M0 330H1200M0 400H1200M0 470H1200M0 540H1200M0 610H1200" stroke="#94A3B8" stroke-opacity="0.22" stroke-width="2"/>
+    <path d="M120 190V700M240 190V700M360 190V700M480 190V700M600 190V700M720 190V700M840 190V700M960 190V700M1080 190V700" stroke="#94A3B8" stroke-opacity="0.16" stroke-width="2"/>
+  </g>
+
+  <!-- Bathroom vignette -->
+  <g filter="url(#shadow)">
+    <!-- Floor -->
+    <path d="M190 560c0-26 21-47 47-47h726c26 0 47 21 47 47v48c0 26-21 47-47 47H237c-26 0-47-21-47-47v-48z" fill="#0F172A" stroke="#334155" stroke-width="6"/>
+
+    <!-- Shower glass panel -->
+    <path d="M760 240c0-18 14-32 32-32h170c18 0 32 14 32 32v270c0 18-14 32-32 32H792c-18 0-32-14-32-32V240z" fill="url(#glass)" stroke="#334155" stroke-width="6"/>
+    <path d="M810 255v235" stroke="#E2E8F0" stroke-opacity="0.22" stroke-width="6" stroke-linecap="round"/>
+    <path d="M945 258v230" stroke="#E2E8F0" stroke-opacity="0.14" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Rain shower head -->
+    <path d="M880 195c0-26 21-47 47-47h40" stroke="#FBBF24" stroke-width="10" stroke-linecap="round"/>
+    <path d="M1025 148h-80c-20 0-36 16-36 36v14h152v-14c0-20-16-36-36-36z" fill="#0B1220" stroke="#334155" stroke-width="6"/>
+    <g opacity="0.55">
+      <path d="M915 212v56M942 212v56M969 212v56M996 212v56" stroke="#7DD3FC" stroke-width="6" stroke-linecap="round"/>
+    </g>
+
+    <!-- Bath -->
+    <path d="M300 420c0-54 44-98 98-98h240c54 0 98 44 98 98v58H300v-58z" fill="url(#porcelain)" stroke="#334155" stroke-width="6"/>
+    <path d="M330 478h378" stroke="#94A3B8" stroke-opacity="0.45" stroke-width="4" stroke-linecap="round"/>
+    <path d="M340 318c0-18 14-32 32-32h58" stroke="#FBBF24" stroke-width="10" stroke-linecap="round"/>
+    <path d="M430 265c0-14 12-26 26-26h22c14 0 26 12 26 26v22h-74v-22z" fill="#0B1220" stroke="#334155" stroke-width="6"/>
+
+    <!-- Vanity -->
+    <path d="M260 250c0-20 16-36 36-36h170c20 0 36 16 36 36v170c0 20-16 36-36 36H296c-20 0-36-16-36-36V250z" fill="#0B1220" stroke="#334155" stroke-width="6"/>
+    <path d="M290 270h220" stroke="#FBBF24" stroke-opacity="0.8" stroke-width="8" stroke-linecap="round"/>
+    <path d="M290 328h170" stroke="#E2E8F0" stroke-opacity="0.14" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="460" cy="356" r="34" fill="url(#porcelain)" stroke="#334155" stroke-width="6"/>
+    <path d="M430 356h60" stroke="#94A3B8" stroke-opacity="0.45" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- Title block -->
+  <g>
+    <text x="72" y="92" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="46" font-weight="900" fill="#E2E8F0">
+      Bathroom refurbishment
+    </text>
+    <text x="72" y="140" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="24" font-weight="600" fill="#94A3B8">
+      Woodford • Waterproofing • Tiling • Fit‑off
+    </text>
+    <path d="M72 160h380" stroke="#FBBF24" stroke-opacity="0.7" stroke-width="6" stroke-linecap="round"/>
+  </g>
+</svg>

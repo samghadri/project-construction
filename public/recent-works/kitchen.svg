@@ -1,0 +1,85 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kitchen refurbishment placeholder image">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#020617"/>
+      <stop offset="1" stop-color="#0B1220"/>
+    </linearGradient>
+    <radialGradient id="warm" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(950 160) rotate(210) scale(720 520)">
+      <stop stop-color="#FBBF24" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#FBBF24" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cab" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="counter" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E2E8F0"/>
+      <stop offset="1" stop-color="#94A3B8"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38BDF8" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#A78BFA" stop-opacity="0.10"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <rect width="1200" height="700" fill="url(#warm)"/>
+  <rect x="0" y="180" width="1200" height="520" fill="url(#accent)" opacity="0.8"/>
+
+  <!-- Kitchen vignette -->
+  <g filter="url(#shadow)">
+    <!-- Back wall -->
+    <rect x="175" y="210" width="850" height="360" rx="36" fill="url(#cab)" stroke="#334155" stroke-width="6"/>
+
+    <!-- Upper cabinets -->
+    <g>
+      <rect x="230" y="250" width="200" height="110" rx="18" fill="#0B1220" stroke="#334155" stroke-width="6"/>
+      <rect x="450" y="250" width="220" height="110" rx="18" fill="#0B1220" stroke="#334155" stroke-width="6"/>
+      <rect x="690" y="250" width="240" height="110" rx="18" fill="#0B1220" stroke="#334155" stroke-width="6"/>
+      <path d="M260 305h140M480 305h160M720 305h180" stroke="#FBBF24" stroke-opacity="0.65" stroke-width="8" stroke-linecap="round"/>
+    </g>
+
+    <!-- Backsplash strip -->
+    <rect x="230" y="372" width="700" height="26" rx="13" fill="#FBBF24" fill-opacity="0.22"/>
+    <path d="M245 385h670" stroke="#E2E8F0" stroke-opacity="0.16" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Base cabinets + counter -->
+    <rect x="220" y="410" width="720" height="120" rx="24" fill="#0B1220" stroke="#334155" stroke-width="6"/>
+    <rect x="220" y="396" width="720" height="28" rx="14" fill="url(#counter)" stroke="#334155" stroke-width="6"/>
+    <path d="M270 468h120M430 468h140M610 468h140M790 468h120" stroke="#94A3B8" stroke-opacity="0.35" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Sink + tap -->
+    <rect x="520" y="410" width="160" height="70" rx="16" fill="#0F172A" stroke="#334155" stroke-width="6"/>
+    <path d="M600 404c0-34 28-62 62-62h42" stroke="#FBBF24" stroke-width="10" stroke-linecap="round"/>
+    <path d="M750 338c0-16 13-29 29-29h0c16 0 29 13 29 29v16h-58v-16z" fill="#0B1220" stroke="#334155" stroke-width="6"/>
+
+    <!-- Island -->
+    <rect x="360" y="545" width="480" height="110" rx="28" fill="#0B1220" stroke="#334155" stroke-width="6"/>
+    <rect x="360" y="530" width="480" height="26" rx="13" fill="url(#counter)" stroke="#334155" stroke-width="6"/>
+    <path d="M430 600h120M650 600h120" stroke="#94A3B8" stroke-opacity="0.35" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Pendant lights -->
+    <g opacity="0.95">
+      <path d="M470 210v52" stroke="#94A3B8" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
+      <path d="M600 210v52" stroke="#94A3B8" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
+      <path d="M730 210v52" stroke="#94A3B8" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
+      <path d="M440 266h60c14 0 26 12 26 26v16h-112v-16c0-14 12-26 26-26z" fill="#FBBF24" fill-opacity="0.18" stroke="#334155" stroke-width="6"/>
+      <path d="M570 266h60c14 0 26 12 26 26v16H544v-16c0-14 12-26 26-26z" fill="#FBBF24" fill-opacity="0.18" stroke="#334155" stroke-width="6"/>
+      <path d="M700 266h60c14 0 26 12 26 26v16H674v-16c0-14 12-26 26-26z" fill="#FBBF24" fill-opacity="0.18" stroke="#334155" stroke-width="6"/>
+    </g>
+  </g>
+
+  <!-- Title block -->
+  <g>
+    <text x="72" y="92" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="46" font-weight="900" fill="#E2E8F0">
+      Kitchen refurbishment
+    </text>
+    <text x="72" y="140" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="24" font-weight="600" fill="#94A3B8">
+      Kensington • Units • Electrics • Plumbing • Finishes
+    </text>
+    <path d="M72 160h340" stroke="#FBBF24" stroke-opacity="0.7" stroke-width="6" stroke-linecap="round"/>
+  </g>
+</svg>
