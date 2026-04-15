@@ -1,9 +1,9 @@
 export default function PropertyMaintenanceContractsPage() {
   return (
     <div className="page-shell">
-      <div className="mx-auto max-w-5xl px-4 py-10 sm:px-8 sm:py-14 md:px-10">
+      <div className="mx-auto max-w-5xl px-4 py-9 sm:px-8 sm:py-14 md:px-10">
         <header
-          className="flex flex-col gap-4 border-b pb-8"
+          className="flex flex-col gap-4 border-b pb-6 sm:pb-8"
           style={{ borderColor: "var(--border-subtle)" }}
         >
           <p className="section-label">Service</p>
@@ -15,23 +15,27 @@ export default function PropertyMaintenanceContractsPage() {
             portfolios. Ideal for landlords, homeowners and managing agents who
             want one dependable team to keep everything running smoothly.
           </p>
-          <div className="flex flex-wrap items-center gap-3 pt-2">
+          <div className="grid gap-3 pt-2 sm:flex sm:flex-wrap sm:items-center">
             <a
               href="https://wa.me/447473711666"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-primary"
+              className="btn btn-primary w-full sm:w-auto"
             >
               WhatsApp for a quick quote
               <span className="sr-only"> Opens WhatsApp in a new tab.</span>
             </a>
-            <a href="/" className="link link-muted text-sm">
+            <a href="/" className="btn btn-ghost w-full sm:w-auto">
               Back to homepage
             </a>
           </div>
         </header>
 
-        <main id="main-content" className="grid gap-10 py-10 sm:grid-cols-2 sm:gap-12 sm:py-14" tabIndex={-1}>
+        <main
+          id="main-content"
+          className="grid gap-8 py-8 pb-28 sm:grid-cols-2 sm:gap-12 sm:py-14"
+          tabIndex={-1}
+        >
           <section className="card-soft p-6" aria-labelledby="included-heading">
             <h2 id="included-heading" className="section-label">
               Included options
@@ -55,6 +59,23 @@ export default function PropertyMaintenanceContractsPage() {
             </ul>
           </section>
         </main>
+
+        <div className="mobile-cta sm:hidden" role="region" aria-label="Quick contact">
+          <div className="mobile-cta__inner">
+            <a href="tel:+447473711666" className="btn btn-primary mobile-cta__btn">
+              Call
+            </a>
+            <a
+              href="https://wa.me/447473711666"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-ghost mobile-cta__btn"
+            >
+              WhatsApp
+              <span className="sr-only"> Opens WhatsApp in a new tab.</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
