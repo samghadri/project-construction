@@ -8,13 +8,19 @@ async function getPublicPhotoPaths() {
 
   try {
     const files = await readdir(photosDir);
-    const imageFiles = files.filter((file) => /\.(png|jpe?g|webp|gif|avif)$/i.test(file));
+    const imageFiles = files.filter((file) =>
+      /\.(png|jpe?g|webp|gif|avif)$/i.test(file),
+    );
 
     imageFiles.sort((a, b) => {
       const an = Number.parseInt(a.replace(/\D+/g, ""), 10);
       const bn = Number.parseInt(b.replace(/\D+/g, ""), 10);
-      if (Number.isFinite(an) && Number.isFinite(bn) && an !== bn) return an - bn;
-      return a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" });
+      if (Number.isFinite(an) && Number.isFinite(bn) && an !== bn)
+        return an - bn;
+      return a.localeCompare(b, undefined, {
+        numeric: true,
+        sensitivity: "base",
+      });
     });
 
     return imageFiles.map((file) => `/photos/${file}`);
@@ -39,14 +45,19 @@ export default async function Home() {
           style={{ borderColor: "var(--border-subtle)" }}
         >
           <div className="min-w-0">
-            <p className="section-label">London Property Specialists</p>
+            <p className="section-label text-[1.3rem]">
+              London Property Specialists
+            </p>
             <p className="mt-2 max-w-md text-sm leading-relaxed text-[var(--text-muted)]">
-              Maintenance, repairs, refurbishments & construction — fully insured
-              trades for London properties.
+              Maintenance, repairs, refurbishments & construction — fully
+              insured trades for London properties.
             </p>
           </div>
           <div className="flex flex-col items-stretch gap-3 sm:items-end sm:text-right">
-            <a href={phoneHref} className="link no-underline text-[var(--text-primary)]">
+            <a
+              href={phoneHref}
+              className="link no-underline text-[var(--text-primary)]"
+            >
               <span className="text-[var(--text-muted)]">Call us</span>{" "}
               <span className="whitespace-nowrap">{phoneDisplay}</span>
             </a>
@@ -76,7 +87,9 @@ export default async function Home() {
                 id="hero-heading"
                 className="text-balance text-[1.6rem] font-semibold leading-[1.14] tracking-tight text-[var(--text-primary)] sm:text-4xl md:text-[2.65rem] md:leading-[1.1]"
               >
-                <span className="text-[var(--accent)]">London trusted experts</span>{" "}
+                <span className="text-[var(--accent)]">
+                  London trusted experts
+                </span>{" "}
                 in property maintenance, repairs & construction — 24/7
               </h1>
               <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-[var(--text-secondary)] sm:text-lg">
@@ -85,7 +98,10 @@ export default async function Home() {
                 managing agents.
               </p>
               <div className="mt-7 grid gap-3 sm:mt-8 sm:flex sm:flex-wrap sm:items-center sm:gap-4">
-                <a href={phoneHref} className="btn btn-primary w-full sm:w-auto">
+                <a
+                  href={phoneHref}
+                  className="btn btn-primary w-full sm:w-auto"
+                >
                   Call now — 24/7 response
                 </a>
                 <p className="text-sm leading-snug text-[var(--text-muted)] sm:max-w-[14rem]">
@@ -129,7 +145,10 @@ export default async function Home() {
                 <div className="mt-4 grid gap-3 sm:flex sm:flex-wrap">
                   <div
                     className="flex items-center gap-3 rounded-xl border px-3 py-2.5"
-                    style={{ borderColor: "var(--border-subtle)", background: "var(--surface-2)" }}
+                    style={{
+                      borderColor: "var(--border-subtle)",
+                      background: "var(--surface-2)",
+                    }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -145,7 +164,10 @@ export default async function Home() {
                   </div>
                   <div
                     className="flex items-center gap-3 rounded-xl border px-3 py-2.5"
-                    style={{ borderColor: "var(--border-subtle)", background: "var(--surface-2)" }}
+                    style={{
+                      borderColor: "var(--border-subtle)",
+                      background: "var(--surface-2)",
+                    }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -239,7 +261,13 @@ export default async function Home() {
             </aside>
           </section>
 
-          <div aria-label="Project photos" className="-mt-4 sm:-mt-8">
+          <div aria-label="Project photos" className="-mt-3 sm:-mt-8">
+            <h2 id="recent-heading" className="section-label">
+              Recent works
+            </h2>
+            <p className="mt-1 text-sm text-[var(--text-secondary)] mb-5">
+              A few recent jobs completed across London.
+            </p>
             <PhotoCarousel images={photoPaths} />
           </div>
 
@@ -314,85 +342,10 @@ export default async function Home() {
                   Local areas
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
-                  Notting Hill Gate, Westminster, Hyde Park, Chelsea, Kensington,
-                  Islington, Hampstead.
+                  Notting Hill Gate, Westminster, Hyde Park, Chelsea,
+                  Kensington, Islington, Hampstead.
                 </p>
               </div>
-            </div>
-          </section>
-
-          <section aria-labelledby="recent-heading" className="grid gap-6 sm:gap-8">
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <h2 id="recent-heading" className="section-label">
-                  Recent works
-                </h2>
-                <p className="mt-3 text-sm text-[var(--text-secondary)]">
-                  A few recent jobs completed across London.
-                </p>
-              </div>
-              <p className="text-xs text-[var(--text-subtle)]">
-                Placeholder images — replace with your own project photos.
-              </p>
-            </div>
-            <div className="grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              <figure className="card overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/recent-works/bathroom.svg"
-                  alt="Illustration: bathroom refurbishment in Woodford"
-                  className="h-40 w-full object-cover sm:h-44"
-                  width={800}
-                  height={400}
-                  loading="lazy"
-                />
-                <figcaption className="border-t p-4" style={{ borderColor: "var(--border-subtle)" }}>
-                  <p className="text-sm font-semibold text-[var(--text-primary)]">
-                    Bathroom refurbishment — Woodford
-                  </p>
-                  <p className="mt-1 text-sm text-[var(--text-muted)]">
-                    Full rip-out, waterproofing, tiling and final fit-off.
-                  </p>
-                </figcaption>
-              </figure>
-              <figure className="card overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/recent-works/leak.svg"
-                  alt="Illustration: emergency leak repair in Notting Hill Gate"
-                  className="h-40 w-full object-cover sm:h-44"
-                  width={800}
-                  height={400}
-                  loading="lazy"
-                />
-                <figcaption className="border-t p-4" style={{ borderColor: "var(--border-subtle)" }}>
-                  <p className="text-sm font-semibold text-[var(--text-primary)]">
-                    Emergency leak repair — Notting Hill Gate
-                  </p>
-                  <p className="mt-1 text-sm text-[var(--text-muted)]">
-                    Rapid isolation, repair, and damage prevention.
-                  </p>
-                </figcaption>
-              </figure>
-              <figure className="card overflow-hidden sm:col-span-2 lg:col-span-1">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/recent-works/kitchen.svg"
-                  alt="Illustration: kitchen refurbishment in Kensington"
-                  className="h-40 w-full object-cover sm:h-44"
-                  width={800}
-                  height={400}
-                  loading="lazy"
-                />
-                <figcaption className="border-t p-4" style={{ borderColor: "var(--border-subtle)" }}>
-                  <p className="text-sm font-semibold text-[var(--text-primary)]">
-                    Kitchen refurbishment — Kensington
-                  </p>
-                  <p className="mt-1 text-sm text-[var(--text-muted)]">
-                    New units, electrics, plumbing, finishes and snagging.
-                  </p>
-                </figcaption>
-              </figure>
             </div>
           </section>
         </main>
@@ -402,8 +355,7 @@ export default async function Home() {
           style={{ borderColor: "var(--border-subtle)" }}
         >
           <p>
-            ©{" "}
-            <span suppressHydrationWarning>{new Date().getFullYear()}</span>{" "}
+            © <span suppressHydrationWarning>{new Date().getFullYear()}</span>{" "}
             London Property Maintenance.
           </p>
           <p className="mt-3 sm:mt-0">
@@ -415,7 +367,11 @@ export default async function Home() {
           </p>
         </footer>
 
-        <div className="mobile-cta sm:hidden" role="region" aria-label="Quick contact">
+        <div
+          className="mobile-cta sm:hidden"
+          role="region"
+          aria-label="Quick contact"
+        >
           <div className="mobile-cta__inner">
             <a href={phoneHref} className="btn btn-primary mobile-cta__btn">
               Call
