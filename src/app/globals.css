@@ -1,29 +1,31 @@
 @import "tailwindcss";
 
-/* Design tokens — warm charcoal + copper accent (readable on dark) */
+/* Design tokens — original dark background + purple accent */
 :root {
-  --background: #0c0b09;
-  --foreground: #f5f2eb;
+  /* First design background (Tailwind slate-950) */
+  --background: #020617;
+  --foreground: #f8fafc;
 
-  --surface-page: #0c0b09;
-  --surface-0: #141210;
-  --surface-1: #1c1916;
-  --surface-2: #26221d;
-  --border-subtle: rgba(245, 242, 235, 0.1);
-  --border-strong: rgba(245, 242, 235, 0.16);
+  --surface-page: #020617;
+  --surface-0: #0b1220;
+  --surface-1: #0f172a;
+  --surface-2: #111c33;
+  --border-subtle: rgba(248, 250, 252, 0.12);
+  --border-strong: rgba(248, 250, 252, 0.18);
 
-  --text-primary: #f5f2eb;
-  --text-secondary: #d4cfc4;
-  --text-muted: #a8a29a;
-  --text-subtle: #8a847b;
+  --text-primary: #f8fafc;
+  --text-secondary: rgba(248, 250, 252, 0.82);
+  --text-muted: rgba(248, 250, 252, 0.66);
+  --text-subtle: rgba(248, 250, 252, 0.48);
 
-  --accent: #e8a54b;
-  --accent-hover: #f0b85c;
-  --accent-muted: rgba(232, 165, 75, 0.22);
-  --on-accent: #141210;
+  /* Requested highlight colour */
+  --accent: #ac98ed;
+  --accent-hover: #b8a6f2;
+  --accent-muted: rgba(172, 152, 237, 0.22);
+  --on-accent: #020617;
 
-  --ring: #f0b85c;
-  --ring-offset: #0c0b09;
+  --ring: #ac98ed;
+  --ring-offset: #020617;
 }
 
 @theme inline {
@@ -35,8 +37,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0c0b09;
-    --foreground: #f5f2eb;
+    --background: #020617;
+    --foreground: #f8fafc;
   }
 }
 
@@ -104,6 +106,34 @@ body {
 }
 
 @layer components {
+  .mobile-cta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 40;
+    padding: 0.75rem 1rem;
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+    background: rgba(2, 6, 23, 0.78);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .mobile-cta__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    max-width: 64rem;
+    margin: 0 auto;
+  }
+
+  .mobile-cta__btn {
+    width: 100%;
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+  }
+
   .page-shell {
     min-height: 100vh;
     background: var(--surface-page);
@@ -111,13 +141,18 @@ body {
     background-image:
       radial-gradient(
         ellipse 120% 80% at 50% -20%,
-        rgba(232, 165, 75, 0.08),
-        transparent 50%
+        rgba(172, 152, 237, 0.14),
+        transparent 52%
       ),
       radial-gradient(
-        ellipse 80% 50% at 100% 50%,
-        rgba(120, 113, 108, 0.06),
-        transparent 45%
+        ellipse 80% 55% at 100% 25%,
+        rgba(56, 189, 248, 0.10),
+        transparent 48%
+      ),
+      radial-gradient(
+        ellipse 70% 55% at 0% 70%,
+        rgba(244, 63, 94, 0.06),
+        transparent 50%
       );
   }
 

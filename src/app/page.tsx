@@ -1,15 +1,41 @@
-export default function Home() {
+import path from "node:path";
+import { readdir } from "node:fs/promises";
+
+import PhotoCarousel from "@/components/PhotoCarousel";
+
+async function getPublicPhotoPaths() {
+  const photosDir = path.join(process.cwd(), "public", "photos");
+
+  try {
+    const files = await readdir(photosDir);
+    const imageFiles = files.filter((file) => /\.(png|jpe?g|webp|gif|avif)$/i.test(file));
+
+    imageFiles.sort((a, b) => {
+      const an = Number.parseInt(a.replace(/\D+/g, ""), 10);
+      const bn = Number.parseInt(b.replace(/\D+/g, ""), 10);
+      if (Number.isFinite(an) && Number.isFinite(bn) && an !== bn) return an - bn;
+      return a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" });
+    });
+
+    return imageFiles.map((file) => `/photos/${file}`);
+  } catch {
+    return [];
+  }
+}
+
+export default async function Home() {
   const phoneDisplay = "+44 7473 711666";
   const phoneHref = "tel:+447473711666";
   const whatsappHref = "https://wa.me/447473711666";
   const checkatradeHref = "https://www.checkatrade.com/";
   const googleReviewsHref = "https://www.google.com/search?q=google+reviews";
+  const photoPaths = await getPublicPhotoPaths();
 
   return (
     <div className="page-shell">
-      <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-4 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12">
+      <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-4 py-7 sm:px-8 sm:py-10 md:px-10 md:py-12">
         <header
-          className="mb-10 flex flex-col gap-6 border-b pb-6 sm:flex-row sm:items-start sm:justify-between sm:gap-4"
+          className="mb-8 flex flex-col gap-5 border-b pb-5 sm:mb-10 sm:flex-row sm:items-start sm:justify-between sm:gap-4 sm:pb-6"
           style={{ borderColor: "var(--border-subtle)" }}
         >
           <div className="min-w-0">
@@ -28,7 +54,7 @@ export default function Home() {
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-primary px-5 py-2.5 sm:self-end"
+              className="btn btn-primary w-full px-5 py-3 sm:w-auto sm:self-end"
             >
               WhatsApp for a Quick Quote
               <span className="sr-only"> Opens WhatsApp in a new tab.</span>
@@ -38,17 +64,17 @@ export default function Home() {
 
         <main
           id="main-content"
-          className="flex flex-1 flex-col gap-14 pb-10 sm:gap-20"
+          className="flex flex-1 flex-col gap-12 pb-28 sm:gap-20 sm:pb-10"
           tabIndex={-1}
         >
           <section
             aria-labelledby="hero-heading"
-            className="grid gap-10 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:items-start md:gap-12"
+            className="grid gap-8 sm:gap-10 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:items-start md:gap-12"
           >
             <div>
               <h1
                 id="hero-heading"
-                className="text-balance text-[1.65rem] font-semibold leading-[1.15] tracking-tight text-[var(--text-primary)] sm:text-4xl md:text-[2.65rem] md:leading-[1.1]"
+                className="text-balance text-[1.6rem] font-semibold leading-[1.14] tracking-tight text-[var(--text-primary)] sm:text-4xl md:text-[2.65rem] md:leading-[1.1]"
               >
                 <span className="text-[var(--accent)]">London trusted experts</span>{" "}
                 in property maintenance, repairs & construction — 24/7
@@ -58,11 +84,11 @@ export default function Home() {
                 time. Fully insured trades people for landlords, homeowners and
                 managing agents.
               </p>
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <a href={phoneHref} className="btn btn-primary">
+              <div className="mt-7 grid gap-3 sm:mt-8 sm:flex sm:flex-wrap sm:items-center sm:gap-4">
+                <a href={phoneHref} className="btn btn-primary w-full sm:w-auto">
                   Call now — 24/7 response
                 </a>
-                <p className="max-w-[14rem] text-sm leading-snug text-[var(--text-muted)]">
+                <p className="text-sm leading-snug text-[var(--text-muted)] sm:max-w-[14rem]">
                   <span className="font-semibold text-[var(--text-secondary)]">
                     10+ years experience
                   </span>
@@ -98,10 +124,13 @@ export default function Home() {
                 </a>
               </div>
 
-              <div className="card-soft mt-8 p-5">
+              <div className="card-soft mt-7 p-4 sm:mt-8 sm:p-5">
                 <p className="section-label">Certifications</p>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  <div className="flex items-center gap-3 rounded-xl border px-3 py-2.5" style={{ borderColor: "var(--border-subtle)", background: "var(--surface-2)" }}>
+                <div className="mt-4 grid gap-3 sm:flex sm:flex-wrap">
+                  <div
+                    className="flex items-center gap-3 rounded-xl border px-3 py-2.5"
+                    style={{ borderColor: "var(--border-subtle)", background: "var(--surface-2)" }}
+                  >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/certs/gas-safe.svg"
@@ -114,7 +143,10 @@ export default function Home() {
                       Gas Safe registered
                     </span>
                   </div>
-                  <div className="flex items-center gap-3 rounded-xl border px-3 py-2.5" style={{ borderColor: "var(--border-subtle)", background: "var(--surface-2)" }}>
+                  <div
+                    className="flex items-center gap-3 rounded-xl border px-3 py-2.5"
+                    style={{ borderColor: "var(--border-subtle)", background: "var(--surface-2)" }}
+                  >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/certs/niceic.svg"
@@ -132,7 +164,7 @@ export default function Home() {
             </div>
 
             <aside
-              className="card p-6 md:p-7"
+              className="card p-5 sm:p-6 md:p-7"
               style={{
                 background:
                   "linear-gradient(165deg, rgba(232,165,75,0.12) 0%, rgba(28,25,22,0.92) 42%, var(--surface-1) 100%)",
@@ -206,6 +238,10 @@ export default function Home() {
               </ul>
             </aside>
           </section>
+
+          <div aria-label="Project photos" className="-mt-4 sm:-mt-8">
+            <PhotoCarousel images={photoPaths} />
+          </div>
 
           <section
             aria-labelledby="why-heading"
@@ -285,7 +321,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section aria-labelledby="recent-heading" className="grid gap-8">
+          <section aria-labelledby="recent-heading" className="grid gap-6 sm:gap-8">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <h2 id="recent-heading" className="section-label">
@@ -299,13 +335,13 @@ export default function Home() {
                 Placeholder images — replace with your own project photos.
               </p>
             </div>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
               <figure className="card overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/recent-works/bathroom.svg"
                   alt="Illustration: bathroom refurbishment in Woodford"
-                  className="h-44 w-full object-cover"
+                  className="h-40 w-full object-cover sm:h-44"
                   width={800}
                   height={400}
                   loading="lazy"
@@ -324,7 +360,7 @@ export default function Home() {
                 <img
                   src="/recent-works/leak.svg"
                   alt="Illustration: emergency leak repair in Notting Hill Gate"
-                  className="h-44 w-full object-cover"
+                  className="h-40 w-full object-cover sm:h-44"
                   width={800}
                   height={400}
                   loading="lazy"
@@ -343,7 +379,7 @@ export default function Home() {
                 <img
                   src="/recent-works/kitchen.svg"
                   alt="Illustration: kitchen refurbishment in Kensington"
-                  className="h-44 w-full object-cover"
+                  className="h-40 w-full object-cover sm:h-44"
                   width={800}
                   height={400}
                   loading="lazy"
@@ -378,6 +414,23 @@ export default function Home() {
             .
           </p>
         </footer>
+
+        <div className="mobile-cta sm:hidden" role="region" aria-label="Quick contact">
+          <div className="mobile-cta__inner">
+            <a href={phoneHref} className="btn btn-primary mobile-cta__btn">
+              Call
+            </a>
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-ghost mobile-cta__btn"
+            >
+              WhatsApp
+              <span className="sr-only"> Opens WhatsApp in a new tab.</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
