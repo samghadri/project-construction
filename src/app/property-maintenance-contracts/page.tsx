@@ -20,7 +20,7 @@ export default function PropertyMaintenanceContractsPage() {
               href="https://wa.me/447473711666"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-primary w-full sm:w-auto"
+              className="btn btn-yellow w-full sm:w-auto"
             >
               WhatsApp for a quick quote
               <span className="sr-only"> Opens WhatsApp in a new tab.</span>
@@ -62,7 +62,7 @@ export default function PropertyMaintenanceContractsPage() {
 
         <div className="mobile-cta sm:hidden" role="region" aria-label="Quick contact">
           <div className="mobile-cta__inner">
-            <a href="tel:+447473711666" className="btn btn-primary mobile-cta__btn">
+            <a href="tel:+447473711666" className="btn btn-yellow mobile-cta__btn">
               Call
             </a>
             <a

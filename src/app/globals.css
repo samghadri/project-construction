@@ -24,6 +24,11 @@
   --accent-muted: rgba(172, 152, 237, 0.22);
   --on-accent: #020617;
 
+  /* High-contrast CTA (e.g. WhatsApp quote) */
+  --cta-yellow: #facc15;
+  --cta-yellow-hover: #fde047;
+  --on-cta-yellow: #0f172a;
+
   --ring: #ac98ed;
   --ring-offset: #020617;
 }
@@ -134,6 +139,54 @@ body {
     padding-bottom: 0.9rem;
   }
 
+  /* Social float buttons — positioning is Tailwind on the dock (see SocialFloatLinks) */
+  .social-float-btn {
+    display: flex;
+    height: 3rem;
+    width: 3rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    border: 1px solid var(--border-strong);
+    background: rgba(15, 23, 42, 0.92);
+    color: var(--text-primary);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.06) inset,
+      0 12px 32px rgba(0, 0, 0, 0.45);
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      transform 0.15s ease;
+  }
+
+  .social-float-btn:hover {
+    background: rgba(17, 28, 51, 0.96);
+    color: var(--cta-yellow);
+  }
+
+  .social-float-btn:active {
+    transform: scale(0.96);
+  }
+
+  .social-float-btn:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--ring-offset),
+      0 0 0 4px var(--ring),
+      0 12px 32px rgba(0, 0, 0, 0.45);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .social-float-btn {
+      transition: none;
+    }
+
+    .social-float-btn:active {
+      transform: none;
+    }
+  }
+
   .page-shell {
     min-height: 100vh;
     background: var(--surface-page);
@@ -184,6 +237,22 @@ body {
   }
 
   .btn-primary:active {
+    transform: translateY(1px);
+  }
+
+  .btn-yellow {
+    background: var(--cta-yellow);
+    color: var(--on-cta-yellow);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.35) inset,
+      0 14px 40px rgba(0, 0, 0, 0.35);
+  }
+
+  .btn-yellow:hover {
+    background: var(--cta-yellow-hover);
+  }
+
+  .btn-yellow:active {
     transform: translateY(1px);
   }
 

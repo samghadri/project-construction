@@ -16,7 +16,7 @@ export default function EmergencyRepairsLondonPage() {
             clear communication, and tidy workmanship.
           </p>
           <div className="grid gap-3 pt-2 sm:flex sm:flex-wrap sm:items-center">
-            <a href="tel:+447473711666" className="btn btn-primary w-full sm:w-auto">
+            <a href="tel:+447473711666" className="btn btn-yellow w-full sm:w-auto">
               Call now — 24/7 response
             </a>
             <a href="/" className="btn btn-ghost w-full sm:w-auto">
@@ -71,7 +71,7 @@ export default function EmergencyRepairsLondonPage() {
 
         <div className="mobile-cta sm:hidden" role="region" aria-label="Quick contact">
           <div className="mobile-cta__inner">
-            <a href="tel:+447473711666" className="btn btn-primary mobile-cta__btn">
+            <a href="tel:+447473711666" className="btn btn-yellow mobile-cta__btn">
               Call
             </a>
             <a

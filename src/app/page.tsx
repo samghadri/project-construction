@@ -1,5 +1,7 @@
 import path from "node:path";
 import { readdir } from "node:fs/promises";
+import Image from "next/image";
+import Link from "next/link";
 
 import PhotoCarousel from "@/components/PhotoCarousel";
 
@@ -40,11 +42,46 @@ export default async function Home() {
   return (
     <div className="page-shell">
       <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-4 py-7 sm:px-8 sm:py-10 md:px-10 md:py-12">
-        <header
-          className="mb-8 flex flex-col gap-5 border-b pb-5 sm:mb-10 sm:flex-row sm:items-start sm:justify-between sm:gap-4 sm:pb-6"
-          style={{ borderColor: "var(--border-subtle)" }}
-        >
-          <div className="min-w-0">
+        <header className="mb-8 flex flex-col sm:mb-10">
+          <div
+            className="flex flex-col gap-4 border-b pb-5 sm:flex-row sm:items-start sm:justify-between sm:gap-6 sm:pb-6"
+            style={{ borderColor: "var(--border-subtle)" }}
+          >
+            <div className="flex w-full justify-center sm:w-auto sm:justify-start">
+              <Link
+                href="/"
+                className="shrink-0 rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface-page)]"
+              >
+                <Image
+                  src="/logo/yvbuild.png"
+                  alt="YV Build"
+                  width={1134}
+                  height={540}
+                  priority
+                  className="h-[4.55rem] w-auto max-w-[min(416px,88vw)] object-contain object-center sm:h-[5.2rem] sm:max-w-[520px] sm:object-left md:h-[6.175rem] md:max-w-[624px]"
+                />
+              </Link>
+            </div>
+            <div className="flex min-w-0 flex-col items-stretch gap-3 sm:items-end sm:text-right">
+              <a
+                href={phoneHref}
+                className="link no-underline text-[var(--text-primary)]"
+              >
+                <span className="text-[var(--text-muted)]">Call us</span>{" "}
+                <span className="whitespace-nowrap">{phoneDisplay}</span>
+              </a>
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-yellow w-full px-5 py-3 sm:w-auto sm:self-end"
+              >
+                WhatsApp for a Quick Quote
+                <span className="sr-only"> Opens WhatsApp in a new tab.</span>
+              </a>
+            </div>
+          </div>
+          <div className="min-w-0 pt-5 sm:pt-6">
             <p className="section-label text-[1.3rem]">
               London Property Specialists
             </p>
@@ -52,24 +89,6 @@ export default async function Home() {
               Maintenance, repairs, refurbishments & construction — fully
               insured trades for London properties.
             </p>
-          </div>
-          <div className="flex flex-col items-stretch gap-3 sm:items-end sm:text-right">
-            <a
-              href={phoneHref}
-              className="link no-underline text-[var(--text-primary)]"
-            >
-              <span className="text-[var(--text-muted)]">Call us</span>{" "}
-              <span className="whitespace-nowrap">{phoneDisplay}</span>
-            </a>
-            <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary w-full px-5 py-3 sm:w-auto sm:self-end"
-            >
-              WhatsApp for a Quick Quote
-              <span className="sr-only"> Opens WhatsApp in a new tab.</span>
-            </a>
           </div>
         </header>
 
@@ -98,10 +117,7 @@ export default async function Home() {
                 managing agents.
               </p>
               <div className="mt-7 grid gap-3 sm:mt-8 sm:flex sm:flex-wrap sm:items-center sm:gap-4">
-                <a
-                  href={phoneHref}
-                  className="btn btn-primary w-full sm:w-auto"
-                >
+                <a href={phoneHref} className="btn btn-yellow w-full sm:w-auto">
                   Call now — 24/7 response
                 </a>
                 <p className="text-sm leading-snug text-[var(--text-muted)] sm:max-w-[14rem]">
@@ -373,7 +389,7 @@ export default async function Home() {
           aria-label="Quick contact"
         >
           <div className="mobile-cta__inner">
-            <a href={phoneHref} className="btn btn-primary mobile-cta__btn">
+            <a href={phoneHref} className="btn btn-yellow mobile-cta__btn">
               Call
             </a>
             <a

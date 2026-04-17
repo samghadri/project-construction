@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
+import SocialFloatLinks from "@/components/SocialFloatLinks";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,6 +18,23 @@ export const metadata: Metadata = {
   title: "London Property Maintenance, Repairs & Construction — 24/7",
   description:
     "Property maintenance, emergency repairs, refurbishments and construction across London. Trusted, fully insured trades for landlords, homeowners and managing agents.",
+  icons: {
+    icon: [{ url: "/logo/favicon.ico", type: "image/png", sizes: "32x30" }],
+  },
+  openGraph: {
+    title: "YV Build",
+    description: "London Property Maintenance, Repairs & Construction — 24/7",
+    url: "https://yvbuild.com",
+    siteName: "YV Build",
+    images: [
+      {
+        url: "https://yvbuild.com/logo/metaphoto.png",
+        width: 1312,
+        height: 726,
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -38,6 +57,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         {children}
+        <SocialFloatLinks />
       </body>
     </html>
   );
