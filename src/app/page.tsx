@@ -53,12 +53,12 @@ export default async function Home() {
                 className="shrink-0 rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface-page)]"
               >
                 <Image
-                  src="/logo/yvbuild.png"
+                  src="/logo/yyvbuild.png"
                   alt="YV Build"
                   width={1134}
                   height={540}
                   priority
-                  className="h-[4.55rem] w-auto max-w-[min(416px,88vw)] object-contain object-center sm:h-[5.2rem] sm:max-w-[520px] sm:object-left md:h-[6.175rem] md:max-w-[624px]"
+                  className="h-[5.6875rem] w-auto max-w-[min(520px,88vw)] object-contain object-center sm:h-[6.5rem] sm:max-w-[650px] sm:object-left md:h-[7.71875rem] md:max-w-[780px]"
                 />
               </Link>
             </div>
@@ -109,7 +109,8 @@ export default async function Home() {
                 <span className="text-[var(--accent)]">
                   London trusted experts
                 </span>{" "}
-                in property maintenance, repairs & construction — 24/7
+                in property maintenance, repairs & construction —{" "}
+                <span className="text-[var(--cta-yellow)]">24/7</span>
               </h1>
               <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-[var(--text-secondary)] sm:text-lg">
                 From urgent repairs to full refurbishment — done right, first
@@ -251,6 +252,20 @@ export default async function Home() {
                     aria-hidden="true"
                   />
                   <div>
+                    <p className="font-semibold text-[var(--text-primary)]">
+                      Bespoke joinery
+                    </p>
+                    <p className="mt-1 text-xs leading-relaxed text-[var(--text-muted)]">
+                      Made-to-measure shelving, wardrobes, cabinets and more.
+                    </p>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <span
+                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]"
+                    aria-hidden="true"
+                  />
+                  <div>
                     <a href="/kitchen-refurbishments" className="link">
                       Refurbishment (kitchens & bathrooms)
                     </a>
@@ -372,7 +387,7 @@ export default async function Home() {
         >
           <p>
             © <span suppressHydrationWarning>{new Date().getFullYear()}</span>{" "}
-            London Property Maintenance.
+            YVBUILD LIMITED.
           </p>
           <p className="mt-3 sm:mt-0">
             Need urgent help? Call{" "}
